@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Title>OpenCV.NET</Title>
+    <TargetFrameworks>netstandard1.1;net45</TargetFrameworks>
+    <Description>A .NET interface for the popular OpenCV computer vision and image processing library.</Description>
+    <Version>3.4.0</Version>
+    <AssemblyVersion>3.4.0.0</AssemblyVersion>
+    <FileVersion>3.4.0.0</FileVersion>
+    <Copyright>Copyright © Gonçalo Lopes 2011-2017</Copyright>
+    <Authors>Gonçalo Lopes</Authors>
+    <Company>Gonçalo Lopes</Company>
+    <PackageLicenseUrl>http://bitbucket.org/horizongir/opencv.net/raw/49e2d06d594f859f7c7712cb052eb2b340a73f17/COPYING</PackageLicenseUrl>
+    <PackageProjectUrl>http://bitbucket.org/horizongir/opencv.net</PackageProjectUrl>
+    <PackageIconUrl>http://opencvlibrary.svn.sourceforge.net/viewvc/opencvlibrary/trunk/opencv/doc/opencv-logo.png</PackageIconUrl>
+    <PackageTags>OpenCV Computer Vision Image Processing Wrapper</PackageTags>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\OpenCV.Net.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
