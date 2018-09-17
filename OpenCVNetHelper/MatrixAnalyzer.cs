@@ -92,26 +92,27 @@ namespace OpenCV.Net.Auto
             bitwise_and(horizontal, vertical, joints);
             imshow("joints", joints);
 
-            // Find external contours from the mask, which most probably will belong to tables or to images
-            //vector<Vec4i> hierarchy;
-            //std::vector<std::vector<cv::Point>> contours;
-            //cv::findContours(mask, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
 
-            //vector<vector<Point>> contours_poly(contours.size() );
-            //vector<Rect> boundRect(contours.size() );
-            //vector<Mat> rois;
+      			// Find external contours from the mask, which most probably will belong to tables or to images
+      			List<Vec4i> hierarchy = new List<Vec4i>();
+      			List<List<cv.Point>> contours = new List<List<cv.Point>>();
+      			cv.findContours(mask, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
 
-            //for (size_t i = 0; i < contours.size(); i++)
-            //{
-            //    // find the area of each contour
-            //    double area = contourArea(contours[i]);
+      			List<List<Point>> contours_poly = new List<List<Point>>(contours.Count);
+      			List<Rect> boundRect = new List<Rect>(contours.Count);
+      			List<Mat> rois = new List<Mat>();
 
-            //    //        // filter individual lines of blobs that might exist and they do not represent a table
-            //    if (area < 100) // value is randomly chosen, you will need to find that by yourself with trial and error procedure
-            //    {
-            //        continue;
-            //    }
-            //}
+      			for (uint i = 0; i < contours.Count; i++)
+      			{
+      				// find the area of each contour
+      				double area = contourArea(contours[i]);
+      				// filter individual lines of blobs that might exist and they do not represent a table
+      				if (area < 100) // value is randomly chosen, you will need to find that by yourself with trial and error procedure
+      				{
+      					continue;
+      				}
+      			}
+
 
 
         }
